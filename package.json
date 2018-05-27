@@ -1,0 +1,22 @@
+{
+  "name": "dr-parsa-webpage",
+  "author": "Amirmohammad Moradi <amirmohammad.moradi@gmail.com>",
+  "version": "1.0.0",
+  "scripts": {
+    "build-css": "node-sass src/scss/ -o dist/css/ --output-style compressed",
+    "watch-sass": "nodemon -e scss -x \"npm run build-css\"",
+    "babel-build": "babel -d dist/js/ src/js/",
+    "babel-build-run": "nodemon -e js -x \"npm run babel-build\"",
+    "uglify-js": "uglifyjs-folder dist/js",
+    "project": "npm run babel-build && npm run uglify-js && npm run watch-sass"
+  },
+  "dependencies": {
+    "nodemon": "^1.17.5",
+    "uglifyjs-folder": "^1.5.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1"
+  }
+}
